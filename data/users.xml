@@ -1,0 +1,17 @@
+<users>
+  <user>
+    <id>1</id>
+    <name>Ahmed</name>
+    <email>ahmed@example.com</email>
+  </user>
+  <user>
+    <id>2</id>
+    <name>Leila</name>
+    <email>leila@example.com</email>
+  </user>
+  <user>
+    <id>3</id>
+    <name>Said</name>
+    <email>said@example.com</email>
+  </user>
+</users>
