@@ -11,9 +11,6 @@ from collections import namedtuple
 from dataclasses import dataclass
 from pydantic import BaseModel
 
-# -----------------------------
-# 1. User structures
-# -----------------------------
 
 # TypedDict
 class UserDict(TypedDict):
@@ -44,15 +41,9 @@ class UserPD(BaseModel):
 
 user_pydantic = UserPD(id=4, name="Noor", email="noor@example.com")
 
-# -----------------------------
-# 2. NumPy array vs Python list
-# -----------------------------
 py_list = [1, 2, 3, 4, 5]
 np_array = np.array([1, 2, 3, 4, 5])
 
-# -----------------------------
-# 3. Decorator to measure execution time
-# -----------------------------
 def timer(func):
     def wrapper(*args, **kwargs):
         start = time.time()
@@ -62,9 +53,7 @@ def timer(func):
         return result
     return wrapper
 
-# -----------------------------
-# 4. Compare scalar-vector multiplication
-# -----------------------------
+
 @timer
 def multiply_list(lst, scalar):
     return [x * scalar for x in lst]
@@ -76,32 +65,24 @@ def multiply_numpy(arr, scalar):
 multiply_list(py_list, 10)
 multiply_numpy(np_array, 10)
 
-# -----------------------------
-# 5. Load CSV with Pandas
-# -----------------------------
+
 df = pd.read_csv("data/users.csv")
 print("\nPandas DataFrame from CSV:")
 print(df.to_string(index=False))
 
-# -----------------------------
-# 6. Load JSON
-# -----------------------------
+
 with open("data/users.json", "r", encoding="utf-8") as f:
     users_json = json.load(f)
 print("\nJSON data:")
 print(json.dumps(users_json, indent=4, ensure_ascii=False))
 
-# -----------------------------
-# 7. Load YAML
-# -----------------------------
+
 with open("data/users.yaml", "r", encoding="utf-8") as f:
     users_yaml = yaml.safe_load(f)
 print("\nYAML data:")
 print(yaml.dump(users_yaml, allow_unicode=True, sort_keys=False))
 
-# -----------------------------
-# 8. Load XML
-# -----------------------------
+
 tree = ET.parse("data/users.xml")
 root = tree.getroot()
 users_xml = [{child.tag: child.text for child in user} for user in root]
